@@ -62,39 +62,18 @@ def login():
                     x += 1
                 else:
                     print("Incorrect login details!\n")
-                    print(user + passwo)
                     username = input("Please enter your username:\n")
                     password = input("\nPlease enter your password:\n")
         else:
             if(input("Would you like to register an account?").lower()in list.yList):
                 with open("usernames.txt", "a") as userwrite:
                     userwrite.write(
-                        "\n" + input("\nPlease input a username:\n") + "\n")
+                        input("\nPlease input a username:\n") + "\n")
                 with open("passwords.txt", "a") as passwrite:
                     passwrite.write(
-                        "\n" + input("\nPlease input a password:\n") + "\n")
+                        input("\nPlease input a password:\n") + "\n")
 
 
-# old login system
-'''
-def login():
-    global loginVerif
-    print("* "*15 + "\n" + "--== Octavio's Dice game ==--" +
-          "\n" + "* "*15 + "\n100% Done")
-    username = input("Please enter your username:\n")
-    p = 0
-    while p < 1:
-        if(username in list.usernames):
-            password = input("\nPlease enter your password:\n")
-            if(password in list.passwords and list.usernames.index(username) == list.passwords.index(password)):
-                print("\nLogin details verified.")
-                loginVerif += 1
-                p += 1
-
-        else:
-            print("Incorrect login details!\n")
-            username = input("Please enter your username:\n")
-'''
 # start gui
 
 
@@ -158,6 +137,48 @@ def game():
             t.sleep(2)
 
 
+def standstill(P1_score, P2_score):
+    z = 0
+    while z < 1:
+        if(P1_score == P2_score):
+            print("\nIt appears you both have the same score... Time to roll again!\n")
+            i = 0
+            while i < 1:
+                if(input("\nWould " + P1_name + " like to roll?\n").lower() in list.yList):
+                    rand11 = rnd.randint(1, 6)
+                    rand12 = rnd.randint(1, 6)
+                    P1_score += rand11
+                    P1_score += rand12
+                    t.sleep(0.25)
+                    print(str(P1_name) + " scored a " +
+                          str(rand11) + " and a " + str(rand12) + "!")
+                    t.sleep(0.25)
+                    print(str("\n" + P1_name) +
+                          "'s new score is " + str(P1_score))
+                    i = 1
+                else:
+                    print("\nHint: You need to say yes\n")
+            x = 0
+            while x < 1:
+                if(input("\nWould " + P2_name + " like to roll?\n").lower() in list.yList):
+                    rand21 = rnd.randint(1, 6)
+                    rand22 = rnd.randint(1, 6)
+                    P2_score += rand21
+                    P2_score += rand22
+                    t.sleep(0.25)
+                    print("\n" + str(P2_name) + " scored a " +
+                          str(rand21) + " and a " + str(rand22) + "!")
+                    t.sleep(0.25)
+                    print(str(P2_name) + "'s new score is " + str(P2_score))
+                    x = 1
+                else:
+                    print("\nHint: You need to say yes\n")
+                t.sleep(2)
+
+        elif(P1_score != P2_score):
+            z += 1
+
+
 # leaderboard stuff
 scoreList = []
 
@@ -195,6 +216,7 @@ def main():
     if(loginVerif == 1):
         start()
         game()
+        standstill(P1_score, P2_score)
         printscore()
 
 
