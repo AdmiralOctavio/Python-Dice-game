@@ -116,7 +116,7 @@ def game():
                 print(str(P1_name) + " scored a " +
                       str(rand11) + " and a " + str(rand12) + "!")
                 t.sleep(0.25)
-                print(str("\n" + P1_name) + "'s new score is " + str(P1_score))
+                print(str(P1_name) + "'s new score is " + str(P1_score))
                 i = 1
             else:
                 print("\nHint: You need to say yes\n")
@@ -154,7 +154,7 @@ def standstill(P1_score, P2_score):
                     print(str(P1_name) + " scored a " +
                           str(rand11) + " and a " + str(rand12) + "!")
                     t.sleep(0.25)
-                    print(str("\n" + P1_name) +
+                    print(str(P1_name) +
                           "'s new score is " + str(P1_score))
                     i = 1
                 else:
@@ -220,13 +220,18 @@ def printscore():
 
 
 def main():
+    restart = 0
     startup()
     login()
-    if(loginVerif == 1):
-        start()
-        game()
-        standstill(P1_score, P2_score)
-        printscore()
+    while restart == 0:
+        if(loginVerif == 1):
+            start()
+            game()
+            standstill(P1_score, P2_score)
+            printscore()
+            if(input("\nWould you like to play again?\n") not in list.yList):
+                print("Goodbye!")
+                sys.exit()
 
 
 main()
