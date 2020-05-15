@@ -34,6 +34,7 @@ def login():
     global loginVerif
     print("* "*15 + "\n" + "--== Octavio's Dice game ==--" +
           "\n" + "* "*15 + "\n100% Done")
+    print("\nQuick game mechanic info: If you score an even number as a final score, you gain 10 points\nIf you score an odd number, you lose 5 points\n")
     x = 0
     while x < 1:
         if(input("\nDo you have an account?\n").lower()in list.yList):
@@ -177,6 +178,14 @@ def standstill(P1_score, P2_score):
 
         elif(P1_score != P2_score):
             z += 1
+    if(P1_score % 2 == 0):
+        P1_score += 10
+    elif(P1_score % 2 != 0):
+        P1_score -= 5
+    if(P2_score % 2 == 0):
+        P2_score += 10
+    elif(P2_score % 2 != 0):
+        P2_score -= 5
 
 
 # leaderboard stuff
