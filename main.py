@@ -178,6 +178,13 @@ def standstill(P1_score, P2_score):
 
         elif(P1_score != P2_score):
             z += 1
+    r = 0
+    for r in range(rnd.randint(3, 5)):
+        print("\nApplying special game mechanics" + "."*r)
+        t.sleep(0.4)
+        refresh()
+        t.sleep(0.4)
+
     if(P1_score % 2 == 0):
         P1_score += 10
     elif(P1_score % 2 != 0):
@@ -207,6 +214,8 @@ def score():
 
 
 def printscore():
+    print("--==FINAL RESULTS==--\n" + str(P1_name) + " scored " + str(P1_score) + "!" +
+          "\n" + str(P2_name) + " scored " + str(P2_score) + "!")
     if(input("\n\nWould you like to see the scoreboard?\n").lower() in list.yList):
         score()
         i = 0
