@@ -3,6 +3,7 @@ import random as rnd
 import time as t
 import list
 import sys
+import getpass
 
 loginVerif = 0
 
@@ -39,7 +40,7 @@ def login():
     while x < 1:
         if(input("\nDo you have an account?\n").lower()in list.yList):
             username = input("\nPlease enter your username:\n")
-            password = input("\nPlease enter your password:\n")
+            password = getpass.getpass("\nPlease enter your password:\n")
             p = 0
             while p < 1:
                 user = []
@@ -64,7 +65,8 @@ def login():
                 else:
                     print("Incorrect login details!\n")
                     username = input("Please enter your username:\n")
-                    password = input("\nPlease enter your password:\n")
+                    password = getpass.getpass(
+                        "\nPlease enter your password:\n")
         else:
             if(input("Would you like to register an account?").lower()in list.yList):
                 with open("usernames.txt", "a") as userwrite:
