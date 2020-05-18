@@ -138,9 +138,6 @@ def game():
             else:
                 print("\nHint: You need to say yes\n")
             t.sleep(2)
-
-
-def standstill(P1_score, P2_score):
     z = 0
     while z < 1:
         if(P1_score == P2_score):
@@ -238,7 +235,6 @@ def main():
         if(loginVerif == 1):
             start()
             game()
-            standstill(P1_score, P2_score)
             printscore()
             if(input("\nWould you like to play again?\n") not in list.yList):
                 print("Goodbye!")
