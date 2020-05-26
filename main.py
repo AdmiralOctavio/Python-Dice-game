@@ -4,6 +4,7 @@ import time as t
 import list
 import sys
 import getpass
+import winsound
 
 loginVerif = 0
 
@@ -27,6 +28,7 @@ def startup():
         refresh()
         t.sleep(0.25)
         i += 1
+    winsound.PlaySound("song.wav", winsound.SND_ASYNC)
 
 # login
 
