@@ -112,8 +112,8 @@ def game():
         i = 0
         while i < 1:
             if(input("\nWould " + P1_name + " like to roll?\n").lower() in list.yList):
-                rand11 = rnd.randint(1, 6)
-                rand12 = rnd.randint(1, 6)
+                rand11 = rnd.randint(1, list.sides[gl])
+                rand12 = rnd.randint(1, list.sides[gl])
                 P1_score += rand11
                 P1_score += rand12
                 t.sleep(0.25)
@@ -127,8 +127,8 @@ def game():
         x = 0
         while x < 1:
             if(input("\nWould " + P2_name + " like to roll?\n").lower() in list.yList):
-                rand21 = rnd.randint(1, 6)
-                rand22 = rnd.randint(1, 6)
+                rand21 = rnd.randint(1, list.sides[gl])
+                rand22 = rnd.randint(1, list.sides[gl])
                 P2_score += rand21
                 P2_score += rand22
                 t.sleep(0.25)
@@ -147,8 +147,8 @@ def game():
             i = 0
             while i < 1:
                 if(input("\nWould " + P1_name + " like to roll?\n").lower() in list.yList):
-                    rand11 = rnd.randint(1, 6)
-                    rand12 = rnd.randint(1, 6)
+                    rand11 = rnd.randint(1, list.sides[gl])
+                    rand12 = rnd.randint(1, list.sides[gl])
                     P1_score += rand11
                     P1_score += rand12
                     t.sleep(0.25)
