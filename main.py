@@ -163,8 +163,8 @@ def game():
             x = 0
             while x < 1:
                 if(input("\nWould " + P2_name + " like to roll?\n").lower() in list.yList):
-                    rand21 = rnd.randint(1, 6)
-                    rand22 = rnd.randint(1, 6)
+                    rand21 = rnd.randint(1, list.sides[gl])
+                    rand22 = rnd.randint(1, list.sides[gl])
                     P2_score += rand21
                     P2_score += rand22
                     t.sleep(0.25)
