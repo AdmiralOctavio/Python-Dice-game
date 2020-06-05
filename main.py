@@ -57,8 +57,10 @@ def login():
                     while len(line) != 0:
                         passwo.append(line)
                         line = readpass.readline()
+                # new line for the sake of formatting in the external file
                 ui = str(username + "\n")
                 pi = str(password + "\n")
+                # compares credentials to the list and compares indexes of ui and passwo
                 if(ui in user and pi in passwo and user.index(ui) == passwo.index(pi)):
                     print("\nLogin details verified.")
                     loginVerif += 1
@@ -71,6 +73,7 @@ def login():
                         "\nPlease enter your password:\n")
         else:
             if(input("Would you like to register an account?").lower()in list.yList):
+                # writes username and password
                 with open("usernames.txt", "a") as userwrite:
                     userwrite.write(
                         input("\nPlease input a username:\n") + "\n")
